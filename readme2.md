@@ -4,7 +4,7 @@ This application is called larvalAuth created by Larvel 5
 1. you need to configure .env to your database enviroment
 
 2. Create Database:
-    import query from larvalAuth/sql/larvalAuth.
+    import query from authLarvel/sql/larvalAuth.
 	
 3. login page  /auth/login
 

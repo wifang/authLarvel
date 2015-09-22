@@ -67,12 +67,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `users`
---
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'William Fang', 'william_w_fang@yahoo.com', '$2y$10$Ca1z3bLJKfxueCKEXGn.fu8d4za6VlgEzMwOJDfHdkSjU.D7AjSnm', 'oBDOsHkVSAPKMP7cXQabTEw2AnkS6FO5SmeScxU0mVNdNw4yQv3ycby37ysL', '2015-09-20 07:40:49', '2015-09-22 23:12:33');
 
 --
 -- Indexes for dumped tables

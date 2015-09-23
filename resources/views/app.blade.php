@@ -9,7 +9,7 @@
 </head>
 <body id="blogPage">
 <header class="blogHeader pageHeader">
-  <h1>Roux Academy of Art and Design<a href="/index.htm" title="home"></a></h1>
+  <h1>Roux Academy of Art and Design<a href="{{ url('/home') }}" title="home"></a></h1>
   <nav id="pageNav" class="cf">
     <ul>
       <li><a href="{{ url('/home') }}" title="programs">Programs</a></li>
@@ -91,4 +91,3 @@
 </footer>	
 </body>
 </html>
-

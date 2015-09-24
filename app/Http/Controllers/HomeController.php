@@ -37,9 +37,10 @@ class HomeController extends Controller
                         ->get();
                  if (count($currentuser)==0){ 
                     Auth::logout();
-                    Cookie::forget('token');
+                    $cookie = Cookie::forget('token');
                     Cookie::forget('user_id');
-                    return view('auth/login');
+                    return Response::make('cookie has bee deleted')->withCookie($cookie);
+                   
                 } else {
                     return view('home');
                 }

@@ -26,16 +26,14 @@ class HomeController extends Controller
     public function index(Request $request)
     { 
         if(Auth::check()){
-           if($request->cookie('token')){
+             if($request->cookie('token')){
                 $pieces = explode(";", $request->cookie('token'));
                 $token = str_replace("token=", "", $pieces[0]); 
-                $id = Auth::user()->id;
+               
                 $currentuser = DB::table('logincookies')->where('user_id', '=', $request->cookie('user_id'))
                         ->where('login_token','=',$token )
                         ->get();
-                echo $token; 
-
-                if (count($currentuser)==0){ 
+                 if (count($currentuser)==0){ 
                     Auth::logout();
                     Cookie::forget('token');
                     Cookie::forget('user_id');
@@ -43,7 +41,11 @@ class HomeController extends Controller
                 } else {
                     return view('home');
                 }
-          }else {
+            }else{
+                $pieces = explode(";", $request->cookie('token'));
+                $token = str_replace("token=", "", $pieces[0]); 
+               
+                $id = Auth::user()->id;
                 $currentuser = new Logincookie();
                 $token_cookie = Cookie::make('token', rand(1,100),360);
                 $user_cookie = Cookie::make('user_id', $id,360);
@@ -53,8 +55,9 @@ class HomeController extends Controller
                 $currentuser->save(); 
                 $response->withCookie('token', $token_cookie);
                 $response->withCookie('user_id', $id);
-                 return $response;
-          }
+                return $response;
+            }
+          
         }
         else{
             return view('auth/login');
